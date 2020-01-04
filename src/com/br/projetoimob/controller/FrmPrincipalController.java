@@ -26,19 +26,37 @@ import javafx.scene.layout.AnchorPane;
 public class FrmPrincipalController implements Initializable {
 
 	@FXML
-	private ImageView imgLogo;
+	private AnchorPane apMenuPrincipal;
 
 	@FXML
-	private JFXButton btnHome;
+	private ImageView imgLogo;
 
 	@FXML
 	private JFXButton btnAtendimentos;
 
 	@FXML
+	private AnchorPane apDireito;
+
+	@FXML
+	private JFXButton btnCadastros;
+
+	@FXML
+	private JFXButton btnAgendamento;
+
+	@FXML
+	private JFXButton btnRelatorios;
+
+	@FXML
+	private JFXButton btnHome;
+
+	@FXML
+	private JFXButton btnPesquisas;
+
+	@FXML
 	private AnchorPane apEsquerdo;
 
 	@FXML
-	private AnchorPane apDireito;
+	private JFXButton btnPagamentos;
 
 	/**
 	 * Inicializa o controller do fxml
@@ -46,6 +64,7 @@ public class FrmPrincipalController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+
 		initFormInAnchor("FrmHome.fxml", apDireito);
 	}
 
@@ -56,6 +75,13 @@ public class FrmPrincipalController implements Initializable {
 	 */
 	@FXML
 	void abrirHome(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnHome);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
 		initFormInAnchor("FrmHome.fxml", apDireito);
 	}
 
@@ -66,7 +92,99 @@ public class FrmPrincipalController implements Initializable {
 	 */
 	@FXML
 	void abrirAtendimentos(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnAtendimentos);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
 		initFormInAnchor("FrmAtendimentos.fxml", apDireito);
+	}
+
+	/**
+	 * Abre o fxml FrmAgendamentos
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirAgendamentos(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnAgendamento);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
+		initFormInAnchor("FrmAgendamentos.fxml", apDireito);
+	}
+
+	/**
+	 * Abre o fxml FrmCadastros
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirCadastros(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnCadastros);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
+		initFormInAnchor("FrmCadastros.fxml", apDireito);
+	}
+
+	/**
+	 * Abre o fxml FrmPesquisas
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirPesquisas(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnPesquisas);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
+		initFormInAnchor("FrmPesquisas.fxml", apDireito);
+	}
+
+	/**
+	 * Abre o fxml FrmRelatorios
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirRelatorios(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnRelatorios);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
+		initFormInAnchor("FrmRelatorios.fxml", apDireito);
+	}
+
+	/**
+	 * Abre o fxml FrmPagamentos
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirPagamentos(ActionEvent event) {
+		// Habilita todos os botoes
+		habilitaBotoes();
+
+		// Desabilita o botão que foi clicado, no caso o btnHome
+		desabilitaBotao(btnPagamentos);
+
+		// Inicializa o form no anchor direito do FrmPrincipal
+		initFormInAnchor("FrmPagamentos.fxml", apDireito);
 	}
 
 	/**
@@ -92,6 +210,27 @@ public class FrmPrincipalController implements Initializable {
 			// System.err.println(ioErr.getMessage());
 			Logger.getLogger(FrmPrincipalController.class.getName(), null).log(Level.SEVERE, null, ioErr);
 		}
+	}
+
+	/**
+	 *  Desabilita o botao ao ser selecionado
+	 * @param jfxButton
+	 */
+	public void desabilitaBotao(JFXButton jfxButton) {
+		jfxButton.setDisable(true);
+	}
+
+	/**
+	 * habilita todos os botões
+	 */
+	public void habilitaBotoes() {
+		btnAgendamento.setDisable(false);
+		btnAtendimentos.setDisable(false);
+		btnCadastros.setDisable(false);
+		btnHome.setDisable(false);
+		btnPagamentos.setDisable(false);
+		btnPesquisas.setDisable(false);
+		btnRelatorios.setDisable(false);
 	}
 
 }

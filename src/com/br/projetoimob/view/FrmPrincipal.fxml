@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
@@ -7,23 +8,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="apPrincipal" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.projetoimob.controller.FrmPrincipalController">
+<AnchorPane id="apPrincipal" fx:id="apMenuPrincipal" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.projetoimob.controller.FrmPrincipalController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane id="apEsquerdo" fx:id="apEsquerdo" maxHeight="1.7976931348623157E308" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" style="-fx-background-color: #F08080;">
                <children>
-                  <VBox id="vbEsquerdo" layoutX="54.0" layoutY="22.0" prefHeight="798.0" prefWidth="248.0" style="-fx-background-color: #F08080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox id="vbEsquerdo" layoutX="54.0" layoutY="22.0" prefHeight="798.0" prefWidth="248.0" style="-fx-background-color: #40E0D0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="152.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true" />
-                        <JFXButton fx:id="btnHome" onAction="#abrirHome" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #FFF; -fx-border-color: #000; -fx-padding: 15;" text="Home" />
-                        <JFXButton fx:id="btnAtendimentos" onAction="#abrirAtendimentos" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #FFF; -fx-padding: 15; -fx-border-color: #000;" text="Atendimentos" />
+                        <ImageView fx:id="imgLogo" fitHeight="201.0" fitWidth="191.0" pickOnBounds="true" />
+                        <JFXButton fx:id="btnHome" onAction="#abrirHome" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #836FFF; -fx-padding: 15;" text="Home" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btnAtendimentos" onAction="#abrirAtendimentos" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #4169E1; -fx-padding: 15;" text="Atendimentos" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btnAgendamento" onAction="#abrirAgendamentos" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: rgb(77,102,204);; -fx-padding: 15; -jfx-button-type: RAISED;" text="Agendamentos" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnCadastros" onAction="#abrirCadastros" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #008B8B; -fx-padding: 15;" text="Cadastros" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnPesquisas" onAction="#abrirPesquisas" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #3CB371; -fx-padding: 15;" text="Pesquisas" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnRelatorios" onAction="#abrirRelatorios" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #B8860B; -fx-padding: 15;" text="Relatórios" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnPagamentos" onAction="#abrirPagamentos" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #228B22; -fx-padding: 15;" text="Pagamentos" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane id="apDireito" fx:id="apDireito" maxHeight="800.0" maxWidth="950.0" minHeight="800.0" minWidth="950.0" prefHeight="800.0" prefWidth="950.0" />
+          <AnchorPane id="apDireito" fx:id="apDireito" />
         </items>
       </SplitPane>
    </children>
