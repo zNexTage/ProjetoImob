@@ -10,7 +10,7 @@ package com.br.projetoimob.domain;
 public class Email extends Telefone{
 	//Atributos
 	private int idEmail;
-	private int idCodigoEmail;
+	private int fkPessoa;
 	private String tipoEmail;
 	private String email;
 	
@@ -30,14 +30,14 @@ public class Email extends Telefone{
 	/**
 	 * @return the idCodigoEmail
 	 */
-	public int getIdCodigoEmail() {
-		return idCodigoEmail;
+	public int getFkPessoa() {
+		return fkPessoa;
 	}
 	/**
 	 * @param idCodigoEmail the idCodigoEmail to set
 	 */
-	public void setIdCodigoEmail(int idCodigoEmail) {
-		this.idCodigoEmail = idCodigoEmail;
+	public void setFkPessoa(int fkPessoa) {
+		this.fkPessoa = fkPessoa;
 	}
 	/**
 	 * @return the tipoEmail

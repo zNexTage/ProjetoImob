@@ -17,6 +17,46 @@ public class Endereco extends Bairro {
 	private String cep;
 	private double latitude;
 	private double longitude;
+	private int numeroApartamento;
+	private int andarApartamento;
+	private int blocoApartamento;
+	
+	/**
+	 * @return the numeroApartamento
+	 */
+	public int getNumeroApartamento() {
+		return numeroApartamento;
+	}
+	/**
+	 * @param numeroApartamento the numeroApartamento to set
+	 */
+	public void setNumeroApartamento(int numeroApartamento) {
+		this.numeroApartamento = numeroApartamento;
+	}
+	/**
+	 * @return the andarApartamento
+	 */
+	public int getAndarApartamento() {
+		return andarApartamento;
+	}
+	/**
+	 * @param andarApartamento the andarApartamento to set
+	 */
+	public void setAndarApartamento(int andarApartamento) {
+		this.andarApartamento = andarApartamento;
+	}
+	/**
+	 * @return the blocoApartamento
+	 */
+	public int getBlocoApartamento() {
+		return blocoApartamento;
+	}
+	/**
+	 * @param blocoApartamento the blocoApartamento to set
+	 */
+	public void setBlocoApartamento(int blocoApartamento) {
+		this.blocoApartamento = blocoApartamento;
+	}
 	/**
 	 * @return the idEndereco
 	 */
