@@ -1,0 +1,35 @@
+/*Muda o background do tab (Tabela) */
+.tab
+{
+	-fx-background-color: #00CED1;	
+	-fx-font-family: 'Century Gothic', Arial, sans-serif;
+	-fx-font-size:20;
+	-fx-text-base-color:#FFFFFF;
+	-fx-font-weight: bold;  
+}
+
+.tab-header-background
+{
+	-fx-background-color: #00CED1;
+}
+
+.jfx-tab-pane
+{
+	-fx-background-color: 	#00CED1;
+} 
+
+#btnSalvar
+{
+	-fx-background-color: #5F9EA0;
+}
+
+#btnLimpar{
+	-fx-background-color: 	#A52A2A;
+}
+
+.jfx-text-field, .jfx-password-field, .jfx-text-area{
+	-fx-prompt-text-fill: white;
+	-jfx-focus-color: #191970;
+	-jfx-unfocus-color: #483D8B;
+	-fx-text-inner-color:white;
+}

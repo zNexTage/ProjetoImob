@@ -3,6 +3,7 @@ package com.br.projetoimob;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
@@ -14,6 +15,7 @@ public class Main extends Application {
 		try {			
 			pRoot = FXMLLoader.load(this.getClass().getResource("view/FrmPrincipal.fxml"));			
 			Scene scene = new Scene(pRoot);
+			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

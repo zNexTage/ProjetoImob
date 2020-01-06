@@ -58,6 +58,9 @@ public class FrmPrincipalController implements Initializable {
 	@FXML
 	private JFXButton btnPagamentos;
 
+	@FXML
+	private JFXButton btnSair;
+
 	/**
 	 * Inicializa o controller do fxml
 	 */
@@ -187,6 +190,13 @@ public class FrmPrincipalController implements Initializable {
 		initFormInAnchor("FrmPagamentos.fxml", apDireito);
 	}
 
+	@FXML
+	void fecharAplicacao(ActionEvent event) {
+		System.exit(0);
+
+		
+	}
+
 	/**
 	 * Abre o FrmHome dentro do achor pane direito do FrmPrincipal
 	 */
@@ -213,7 +223,8 @@ public class FrmPrincipalController implements Initializable {
 	}
 
 	/**
-	 *  Desabilita o botao ao ser selecionado
+	 * Desabilita o botao ao ser selecionado
+	 * 
 	 * @param jfxButton
 	 */
 	public void desabilitaBotao(JFXButton jfxButton) {

@@ -50,6 +50,11 @@
                               <Font name="Century Gothic" size="22.0" />
                            </font>
                         </JFXButton>
+                        <JFXButton fx:id="btnSair" onAction="#fecharAplicacao" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #A52A2A; -fx-padding: 15;" text="Sair" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </VBox>
                </children>
