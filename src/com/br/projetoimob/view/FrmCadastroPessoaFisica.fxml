@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.control.*?>
@@ -9,10 +10,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/FrmCadastroPessoaFisicaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.projetoimob.controller.FrmCadastroController">
+<AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/FrmCadastroPessoaFisicaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.projetoimob.controller.FrmCadastroPessoaFisicaController">
    <children>
-      <Pane fx:id="pneSuperior" maxHeight="180.0" maxWidth="1200.0" minHeight="180.0" minWidth="1200.0" prefHeight="180.0" prefWidth="1200.0" style="-fx-background-color: #008B8B;" />
+      <Pane fx:id="pneSuperior" maxHeight="180.0" maxWidth="1200.0" minHeight="180.0" minWidth="1200.0" prefHeight="180.0" prefWidth="1200.0" style="-fx-background-color: #008B8B;">
+         <children>
+            <Label fx:id="lblFechar" alignment="CENTER" contentDisplay="CENTER" layoutX="1137.0" layoutY="14.0" onMouseClicked="#fecharTela" prefHeight="40.0" prefWidth="63.0" text="X" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblFechar1" layoutX="114.0" layoutY="34.0" onMouseClicked="#fecharTela" prefHeight="40.0" prefWidth="383.0" text="Cadastro de Cliente" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="28.0" />
+               </font>
+            </Label>
+         </children></Pane>
       <AnchorPane fx:id="apTabela" layoutX="120.0" layoutY="120.0" maxHeight="580.0" maxWidth="1000.0" minHeight="580.0" minWidth="1000.0" prefHeight="580.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;">
          <effect>
             <DropShadow />
@@ -25,7 +37,69 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXTextField layoutX="140.0" layoutY="49.0" prefHeight="31.0" prefWidth="189.0" promptText="Nome" />
+                              <GridPane layoutX="27.0" layoutY="23.0" prefHeight="346.0" prefWidth="820.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="269.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="269.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="199.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <JFXTextField fx:id="txtNome" labelFloat="true" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Nome">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtSobrenome" labelFloat="true" layoutX="10.0" layoutY="30.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Sobrenome" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtCpf" labelFloat="true" layoutX="10.0" layoutY="101.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="CPF" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtRg" labelFloat="true" layoutX="10.0" layoutY="172.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="RG" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXComboBox fx:id="cboSexo" labelFloat="true" prefHeight="25.0" prefWidth="211.0" promptText="Selecione o sexo" GridPane.rowIndex="4" />
+                                    <JFXComboBox fx:id="cboEstadoCivil" labelFloat="true" layoutX="10.0" layoutY="258.0" prefHeight="25.0" prefWidth="211.0" promptText="Estado Civil" GridPane.rowIndex="5" />
+                                    <JFXComboBox fx:id="cboRegimeDeBens" labelFloat="true" layoutX="10.0" layoutY="270.0" maxWidth="211.0" minWidth="211.0" prefHeight="25.0" prefWidth="211.0" promptText="Regime de bens" GridPane.rowIndex="6" />
+                                    <JFXTextField fx:id="txtNaturalidade" labelFloat="true" layoutX="10.0" layoutY="20.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Naturalidade" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXComboBox fx:id="cboEstado" labelFloat="true" layoutX="10.0" layoutY="221.0" maxWidth="211.0" minWidth="211.0" prefHeight="25.0" prefWidth="211.0" promptText="Estado" GridPane.columnIndex="2" />
+                                    <JFXComboBox fx:id="cboEscolaridade" labelFloat="true" layoutX="592.0" layoutY="23.0" maxWidth="211.0" minWidth="211.0" prefHeight="25.0" prefWidth="211.0" promptText="Escolariedade" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <JFXTextField fx:id="txtProfissao" labelFloat="true" layoutX="10.0" layoutY="70.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Profissão" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtNomePai" labelFloat="true" layoutX="10.0" layoutY="20.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Nome do Pai" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtNomeMae" labelFloat="true" layoutX="283.0" layoutY="169.0" maxHeight="31.0" maxWidth="250.0" minHeight="31.0" minWidth="250.0" prefHeight="31.0" prefWidth="250.0" promptText="Nome da Mãe" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </GridPane>
                            </children>
                         </AnchorPane>
                   </content>
@@ -48,6 +122,15 @@
                   <Tab text="Preferências">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab text="Anotações">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextArea labelFloat="true" layoutX="130.0" layoutY="90.0" prefHeight="344.0" prefWidth="741.0" promptText="Anotações" style="-fx-background-color: white;" />
+                           </children>
+                        </AnchorPane>
                     </content>
                   </Tab>
               </tabs>
