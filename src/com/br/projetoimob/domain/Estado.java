@@ -11,6 +11,20 @@ public class Estado {
 	//Atributos
 	private int idEstado;
 	private String nomeEstado;
+	private String siglaEstado;
+	
+	/**
+	 * @return the siglaEstado
+	 */
+	public String getSiglaEstado() {
+		return siglaEstado;
+	}
+	/**
+	 * @param siglaEstado the siglaEstado to set
+	 */
+	public void setSiglaEstado(String siglaEstado) {
+		this.siglaEstado = siglaEstado;
+	}
 	/**
 	 * @return the idEstado
 	 */

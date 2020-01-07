@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/FrmCadEstadosCss.Css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.projetoimob.controller.FrmCadEstadosController">
+   <children>
+      <Pane maxHeight="180.0" maxWidth="1200.0" minHeight="180.0" minWidth="1200.0" prefHeight="180.0" prefWidth="1200.0" styleClass="background">
+         <children>
+            <Label layoutX="121.0" layoutY="27.0" text="Cadastro de Estados" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="1137.0" layoutY="14.0" text="X" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="120.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0" styleClass="apMenu">
+         <children>
+            <GridPane layoutX="6.0" prefHeight="52.0" prefWidth="1000.0" AnchorPane.bottomAnchor="528.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXTextField fx:id="txtEstado" labelFloat="true" layoutX="10.0" layoutY="24.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Estado" />
+                  <JFXTextField fx:id="txtSigla" layoutX="10.0" layoutY="24.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Sigla" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <BorderPane layoutX="51.0" layoutY="60.0" prefHeight="520.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+               <center>
+                  <TableView fx:id="tblEstados" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="colCodigoEstado" prefWidth="333.0" text="Código Estado" />
+                      <TableColumn fx:id="colEstado" prefWidth="333.0" text="Estado" />
+                        <TableColumn fx:id="colSigla" prefWidth="333.0" text="Sigla" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="120.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
+         <children>
+            <JFXButton fx:id="btnLimpar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: orange;" text="Limpar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="483.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <JFXButton fx:id="btnAtualizar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: #6495ED;" text="Atualizar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="300.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
+         <children>
+            <JFXButton fx:id="btnDeletar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: #8B0000;" text="Deletar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane layoutX="657.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
+         <children>
+            <JFXButton fx:id="btnSalvar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: #008000;" text="Salvar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+   </children>
+</AnchorPane>

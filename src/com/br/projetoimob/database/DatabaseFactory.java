@@ -21,15 +21,15 @@ public class DatabaseFactory implements Database {
 	private final static String SQL_SERVER = "";
 	private final static String MYSQL = "";
 	private final static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private final static String URL = "jdbc:sqlserver://localhost:1433;user=sa;password=chriskywalker19;databaseName=BENTEC01";
-	private Connection conexao;
+	private final static String URL = "jdbc:sqlserver://localhost:1433;user=sa;password=chriskywalker19;databaseName=DB_IMOB";
 	private static final String USER = "sa";
-	private static final String PASSWORD = "chriskywalker19";		
-	public DatabaseFactory getInstance() 
-	{
+	private static final String PASSWORD = "chriskywalker19";
+	Connection conexao;
+
+	public DatabaseFactory getInstance() {
 		return new DatabaseFactory();
 	}
-	
+
 	// Escolhe o tipo de banco de dados
 	public Connection getDatabase(DatabaseType.databaseType databaseType) {
 		switch (databaseType) {
@@ -40,7 +40,7 @@ public class DatabaseFactory implements Database {
 			return conectar(MYSQL);
 		}
 		}
-		
+
 		return null;
 	}
 
@@ -48,25 +48,23 @@ public class DatabaseFactory implements Database {
 	 * Realiza a conexao com o banco de dados
 	 */
 	@Override
-	public Connection conectar(String conexaoDriver) 
-	{
-		
-			try {
-				Class.forName(URL);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			try {
-				this.conexao = DriverManager.getConnection(URL);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, "Não foi possivel conectar com o banco de dados");
-				e.printStackTrace();
-			}
-			
-			return this.conexao;
+	public Connection conectar(String conexaoDriver) {
+		try {
+			Class.forName(URL);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			this.conexao = DriverManager.getConnection(URL);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Não foi possivel conectar com o banco de dados");
+			e.printStackTrace();
+		}
+
+		return this.conexao;
 	}
 
 	/**
@@ -74,7 +72,7 @@ public class DatabaseFactory implements Database {
 	 */
 	@Override
 	public void desconectar(Connection conexao) {
-		
+
 		try {
 			conexao.close();
 		} catch (SQLException e) {

@@ -1,0 +1,20 @@
+.background{
+	-fx-background-color:#836FFF;
+}
+
+.apMenu{
+	-fx-pref-width:1000.0;
+	-fx-pref-height:580.0;
+	-fx-background-color:#6A5ACD;
+}
+
+.jfx-text-field, .jfx-password-field, .jfx-text-area, .jfx-combo-box{
+	-fx-prompt-text-fill: white;
+	-fx-font-family: 'Century Gothic', Arial, sans-serif;
+	-fx-text-fill:white;
+	-fx-font-size:16;
+	-jfx-focus-color: #D2691E;
+	-fx-text-base-color:#FFFFFF;
+	-jfx-unfocus-color: #F4A460;
+	-fx-text-inner-color:white;	
+}
