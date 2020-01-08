@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/FrmCadEstadosCss.Css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.projetoimob.controller.FrmCadEstadosController">
+<AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/FrmCadEstadosCss.Css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.projetoimob.controller.FrmCadEstadosController">
    <children>
       <Pane maxHeight="180.0" maxWidth="1200.0" minHeight="180.0" minWidth="1200.0" prefHeight="180.0" prefWidth="1200.0" styleClass="background">
          <children>
@@ -19,7 +18,7 @@
                   <Font name="Century Gothic" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="1137.0" layoutY="14.0" text="X" textFill="WHITE">
+            <Label fx:id="lblFechar" layoutX="1137.0" layoutY="14.0" onMouseClicked="#fecharJanela" text="X" textFill="WHITE">
                <font>
                   <Font size="28.0" />
                </font>
@@ -38,7 +37,7 @@
               </rowConstraints>
                <children>
                   <JFXTextField fx:id="txtEstado" labelFloat="true" layoutX="10.0" layoutY="24.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Estado" />
-                  <JFXTextField fx:id="txtSigla" layoutX="10.0" layoutY="24.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Sigla" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="txtSigla" labelFloat="true" layoutX="10.0" layoutY="24.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Sigla" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <BorderPane layoutX="51.0" layoutY="60.0" prefHeight="520.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -59,7 +58,7 @@
       </AnchorPane>
       <Pane layoutX="120.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
          <children>
-            <JFXButton fx:id="btnLimpar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: orange;" text="Limpar" textFill="WHITE">
+            <JFXButton fx:id="btnLimpar" onAction="#limparCampos" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: orange;" text="Limpar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -101,7 +100,7 @@
       </Pane>
       <Pane layoutX="657.0" layoutY="722.0" prefHeight="52.0" prefWidth="147.0">
          <children>
-            <JFXButton fx:id="btnSalvar" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: #008000;" text="Salvar" textFill="WHITE">
+            <JFXButton fx:id="btnSalvar" onAction="#salvarEstado" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: #008000;" text="Salvar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>

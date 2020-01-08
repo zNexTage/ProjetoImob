@@ -20,7 +20,7 @@ public class DatabaseFactory implements Database {
 
 	private final static String SQL_SERVER = "";
 	private final static String MYSQL = "";
-	private final static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private final static String CLASS_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private final static String URL = "jdbc:sqlserver://localhost:1433;user=sa;password=chriskywalker19;databaseName=DB_IMOB";
 	private static final String USER = "sa";
 	private static final String PASSWORD = "chriskywalker19";
@@ -50,7 +50,7 @@ public class DatabaseFactory implements Database {
 	@Override
 	public Connection conectar(String conexaoDriver) {
 		try {
-			Class.forName(URL);
+			Class.forName(CLASS_NAME);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
