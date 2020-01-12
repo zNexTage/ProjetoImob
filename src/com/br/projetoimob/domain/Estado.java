@@ -50,5 +50,11 @@ public class Estado {
 		this.nomeEstado = nomeEstado;
 	}
 	
-
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getNomeEstado();
+	}
+	
+	
 }

@@ -72,7 +72,7 @@ public class EstadosDAO {
 		conexao = dbFactory.getDatabase(DatabaseType.databaseType.SQLSERVER);
 		
 		//Monta o comando
-		sComando = " SELECT * FROM TBL_ESTADOS ";
+		sComando = " SELECT * FROM TBL_ESTADOS ORDER BY ESTADO ASC";
 		
 		try {
 			//Atribui o comando ao prepared statement
@@ -114,7 +114,71 @@ public class EstadosDAO {
 		
 		return null;
 	}
-	public void atualizar() {}
-	public void deletar(int iIdEstado) {}
+	public void atualizar(Estado estado)
+	{
+		StringBuilder sbComandoBuilder;
+		PreparedStatement pstComando;
+		Connection conexao = null;
+		DatabaseFactory dbFactory = null;
+		
+		try 
+		{
+			dbFactory = new DatabaseFactory();
+			
+			conexao = dbFactory.getDatabase(databaseType.SQLSERVER);
+			
+			sbComandoBuilder = new StringBuilder();
+			
+			sbComandoBuilder.append(" UPDATE TBL_ESTADOS ");
+			sbComandoBuilder.append(" SET ESTADO = ?, SIGLA = ? ");
+			sbComandoBuilder.append(" WHERE ID_ESTADO = ? ");
+			
+			pstComando = conexao.prepareStatement(sbComandoBuilder.toString());
+			
+			pstComando.setString(1, estado.getNomeEstado());
+			pstComando.setString(2, estado.getSiglaEstado());
+			pstComando.setInt(3, estado.getIdEstado());
+			
+			pstComando.executeUpdate();
+			
+		}catch(SQLException sqlErr) 
+		{
+			System.err.println(sqlErr.getMessage());
+		} 
+		finally 
+		{
+			dbFactory.desconectar(conexao);
+		}
+	}
+	public void deletar(int iIdEstado) 
+	{
+		StringBuilder sbComandoBuilder;
+		PreparedStatement pstComando;
+		Connection conexao;
+		DatabaseFactory dbFactory;
+		
+		dbFactory = new DatabaseFactory();
+		
+		conexao = dbFactory.getDatabase(databaseType.SQLSERVER);
+		sbComandoBuilder = new StringBuilder();
+		
+		
+		sbComandoBuilder.append(" DELETE FROM TBL_ESTADOS WHERE ID_ESTADO = ? ");
+		
+		try {
+			pstComando = conexao.prepareStatement(sbComandoBuilder.toString());
+			
+			pstComando.setInt(1, iIdEstado);
+			
+			pstComando.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally 
+		{
+			dbFactory.desconectar(conexao);
+		}
+	}
 	
 }

@@ -11,7 +11,6 @@ public class Cidade extends Estado {
 	//Atributo
 	private int idCidade;
 	private String nomeCidades;
-	private int idEstados;
 	/**
 	 * @return the idCidade
 	 */
@@ -35,18 +34,6 @@ public class Cidade extends Estado {
 	 */
 	public void setNomeCidades(String nomeCidades) {
 		this.nomeCidades = nomeCidades;
-	}
-	/**
-	 * @return the idEstados
-	 */
-	public int getIdEstados() {
-		return idEstados;
-	}
-	/**
-	 * @param idEstados the idEstados to set
-	 */
-	public void setIdEstados(int idEstados) {
-		this.idEstados = idEstados;
 	}
 	
 }

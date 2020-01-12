@@ -6,6 +6,7 @@ package com.br.projetoimob.controller;
 import java.awt.TrayIcon.MessageType;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javax.swing.Icon;
@@ -23,9 +24,14 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -67,7 +73,12 @@ public class FrmCadEstadosController implements Initializable {
 
 	@FXML
 	private Label lblFechar;
+	
+    @FXML
+    private Label lblId;
 
+    static boolean isUptade = false;;
+    
 	// Atributos para preencher a tableview
 	private List<Estado> listEstados; // Utilizamos para conversar com o banco de dados
 	private ObservableList<Estado> oListEstados; // Utilizamos para conversar com o viewtable
@@ -83,19 +94,19 @@ public class FrmCadEstadosController implements Initializable {
 	 * Preenche o TableView com os estados
 	 */
 	private void preencherTabela() {
-		
-		//Determina os atributos que irão preencher as colunas
+
+		// Determina os atributos que irão preencher as colunas
 		colCodigoEstado.setCellValueFactory(new PropertyValueFactory<>("idEstado"));
 		colEstado.setCellValueFactory(new PropertyValueFactory<>("nomeEstado"));
 		colSigla.setCellValueFactory(new PropertyValueFactory<>("siglaEstado"));
 
-		//Instancia a lista
+		// Instancia a lista
 		listEstados = estadosDAO.selecionar();
 
-		//Adiciona a lista de lista no observablearray
+		// Adiciona a lista de lista no observablearray
 		oListEstados = FXCollections.observableArrayList(listEstados);
 
-		//Adiciona o array na lista
+		// Adiciona o array na lista
 		tblEstados.setItems(oListEstados);
 	}
 
@@ -107,54 +118,55 @@ public class FrmCadEstadosController implements Initializable {
 	@FXML
 	void salvarEstado(ActionEvent event) {
 		Estado estado;
-		
-		//Instancia o objeto
+
+		// Instancia o objeto
 		estado = new Estado();
 
-		//Recebe os valores dos campos de texto
+		// Recebe os valores dos campos de texto
 		estado.setNomeEstado(txtEstado.getText());
 		estado.setSiglaEstado(txtSigla.getText());
 
-		//Verifica se o atributo está vazio
+		// Verifica se o atributo está vazio
 		if (estado.getNomeEstado().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha o campo Estado");
 
 			return;
 		}
-		
-		//Verifica se o atributo está vazio
+
+		// Verifica se o atributo está vazio
 		if (estado.getSiglaEstado().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha o campo Sigla");
 
 			return;
 		}
 
-		//Realiza a inserção do estado
+		// Realiza a inserção do estado
 		estadosDAO.inserir(estado);
 
-		//Preenche a tabela novamente
+		// Preenche a tabela novamente
 		preencherTabela();
 
-		//Limpa os campos
+		// Limpa os campos
 		limparCampos();
 
-		//Demonstra uma mensagem de sucesso ao usuário
+		// Demonstra uma mensagem de sucesso ao usuário
 		JOptionPane.showMessageDialog(null, "Estado cadastrado com sucesso", "Atenção", JOptionPane.INFORMATION_MESSAGE,
 				null);
 	}
 
 	/**
 	 * Chama o metodo para limpar os campos
+	 * 
 	 * @param event
 	 */
-    @FXML
-    void limparCampos(ActionEvent event) {
-    	limparCampos();
-    }
-	
-    /**
-     * Limpa os campos de texto
-     */
+	@FXML
+	void limparCampos(ActionEvent event) {
+		limparCampos();
+	}
+
+	/**
+	 * Limpa os campos de texto
+	 */
 	private void limparCampos() {
 		txtEstado.setText("");
 		txtSigla.setText("");
@@ -162,13 +174,90 @@ public class FrmCadEstadosController implements Initializable {
 
 	/**
 	 * Fecha a janela
+	 * 
 	 * @param event
 	 */
 	@FXML
-	void fecharJanela(Event event) {
+	void fecharJanela(ActionEvent event) {
 		Stage frmCadEstados = (Stage) lblFechar.getScene().getWindow();
 
 		// Fecha a janela
 		frmCadEstados.close();
 	}
+	
+	/**
+	 * Atualiza as informações do estado
+	 * @param event
+	 */
+    @FXML
+    void atualizarEstado(ActionEvent event) {
+    	int iIndexRow;
+    	Estado estado = null;
+    	EstadosDAO estadosDao=null;
+    	
+    	estado = new Estado();
+    	
+    	estado.setNomeEstado(txtEstado.getText());
+    	estado.setIdEstado(new Integer(lblId.getText()));
+    	estado.setSiglaEstado(txtSigla.getText());
+    	
+    	estadosDao = new EstadosDAO();
+    	
+    	estadosDao.atualizar(estado);
+    	
+    	preencherTabela();
+    }
+    
+    /**
+     * Deleta um estado
+     * @param event
+     */
+    @FXML
+    void deletarEstado(ActionEvent event) {
+    	int iIndexRow;
+    	Estado estado;   	
+    	Alert alert;
+    	
+    	//Recebe o index da linha que foi clicada
+    	iIndexRow = tblEstados.getSelectionModel().getSelectedIndex();
+    	
+    	//Recebe os valores da linha
+    	estado = tblEstados.getItems().get(iIndexRow);
+    	
+    	alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Deletar Estado!!");
+    	alert.setHeaderText("Atenção!!");
+    	alert.setContentText("Você deseja apagar o estado: "+estado.getNomeEstado()+"?");
+
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    	    estadosDAO.deletar(estado.getIdEstado());
+    	    preencherTabela();
+    	    
+    	    alert = new Alert(AlertType.WARNING);
+    	    alert.setTitle("Sucesso!!");
+    	    alert.setHeaderText("Estado apagado");
+    	    alert.setContentText("O estado "+estado.getNomeEstado()+" foi apagado!!");
+
+    	    alert.showAndWait();
+    	    
+    	}   	
+    }
+    
+    @FXML
+    void preencherCampos(Event event) {
+    	int iIndexRow;
+    	Estado estado;
+    	
+    	//Recebe o index da linha que foi clicada
+    	iIndexRow = tblEstados.getSelectionModel().getSelectedIndex();
+    	
+    	//Recebe os valores da linha
+    	estado = tblEstados.getItems().get(iIndexRow);
+    	
+    	lblId.setText(String.valueOf(estado.getIdEstado()));
+    	txtEstado.setText(estado.getNomeEstado());
+    	txtSigla.setText(estado.getSiglaEstado());
+    }
+
 }

@@ -85,7 +85,7 @@
                   <Font name="Century Gothic" size="19.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnCadCidade" prefHeight="262.0" prefWidth="693.0" text="Cidades" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <JFXButton fx:id="btnCadCidade" onAction="#abrirCadCidades" prefHeight="262.0" prefWidth="693.0" text="Cidades" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="19.0" />
                </font>

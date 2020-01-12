@@ -103,4 +103,24 @@ public class FrmCadastroController implements Initializable {
 			System.err.println(err.getMessage());
 		}
 	}
+
+	/**
+	 * Abre o formulario para cadastrar as cidades
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void abrirCadCidades(ActionEvent event) {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/FrmCadCidades.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.setScene(new Scene(root1));
+			stage.show();
+		} catch (IOException err) {
+			System.err.println(err.getMessage());
+		}
+	}
 }
