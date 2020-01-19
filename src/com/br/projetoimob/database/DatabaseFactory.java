@@ -21,9 +21,9 @@ public class DatabaseFactory implements Database {
 	private final static String SQL_SERVER = "";
 	private final static String MYSQL = "";
 	private final static String CLASS_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private final static String URL = "jdbc:sqlserver://localhost:1433;user=sa;password=chriskywalker19;databaseName=DB_IMOB";
-	private static final String USER = "sa";
-	private static final String PASSWORD = "chriskywalker19";
+	private final static String URL = "";
+	private static final String USER = "";
+	private static final String PASSWORD = "";
 	Connection conexao;
 
 	public DatabaseFactory getInstance() {
@@ -60,7 +60,7 @@ public class DatabaseFactory implements Database {
 			this.conexao = DriverManager.getConnection(URL);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, "Não foi possivel conectar com o banco de dados");
+			JOptionPane.showMessageDialog(null, "NÃ£o foi possivel conectar com o banco de dados");
 			e.printStackTrace();
 		}
 
@@ -77,7 +77,7 @@ public class DatabaseFactory implements Database {
 			conexao.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, "Não foi possivel desconectar");
+			JOptionPane.showMessageDialog(null, "NÃ£o foi possivel desconectar");
 			e.printStackTrace();
 		}
 	}
